@@ -1,6 +1,6 @@
-import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken"
 
-export const authMiddleware = (req, res, next) => {
+export const verificarToken = (req, res, next) => {
     const authHeader = req.headers["authorization"]
     if (!authHeader) return res.status(401).json({ error: "Token requerido" })
 
@@ -8,7 +8,7 @@ export const authMiddleware = (req, res, next) => {
     if (!token) return res.status(401).json({ error: "Token requerido" })
 
     try {
-        const decoded = jwt.veryfy(token, process.env.JWT_SECRET)
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
         req.usuario = decoded
         next()
 

@@ -11,7 +11,8 @@ export const createLibro = async (req, res) => {
     if(!titulo || !autor) return res.status(400).json({error: "titulo y autor son obligatorios"})
 
 
-}
+
 
 const libro = await prisma.libro.create({data: {titulo, autor}})
 res.status(201).json(libro)
+}

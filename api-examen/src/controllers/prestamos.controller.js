@@ -1,6 +1,6 @@
 import { prisma} from "../db.js"
 
-export const pedirPrestamos = async (req, res) =>{
+export const pedirPrestado = async (req, res) =>{
     const { libroId} = req.body
     if(!libroId) return res.status(400).json({ error: "libroId es obligatorio"})
 
