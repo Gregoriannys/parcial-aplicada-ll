@@ -17,7 +17,7 @@ model Usuario {
   nombre String 
   email  String @unique
   password String 
-  rol      String
+  rol      String  @default("usuario")
   prestamos Prestamos[]
 }
 

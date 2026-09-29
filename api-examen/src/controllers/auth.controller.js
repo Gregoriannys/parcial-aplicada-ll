@@ -14,7 +14,7 @@ export const registro = async (req, res) => {
     if(existe) return res.status(400).json({error: "Email ya registrado"})
 
         const hash = await bcrypt.hash(password, 10)
-        const usuario = await prisma.usuario.Create({
+        const usuario = await prisma.usuario.create({
             data: { nombre, email, password: hash}
         })
     
